@@ -1,4 +1,4 @@
-import { Briefcase, FileText, Users, TrendingUp, Building2, Clock } from 'lucide-react';
+import { Briefcase, FileText, Users, TrendingUp, Building2, Clock, Mail, MapPin, Phone, Globe, CheckCircle } from 'lucide-react';
 import Card from '../ui/Card';
 import Badge from '../ui/Badge';
 import { mockProjects, mockProposals } from '../../data/mockData';
@@ -214,6 +214,82 @@ export default function DashboardHome() {
           </div>
         </Card>
       </div>
+
+      <Card className="mt-8">
+        <div className="p-6">
+          <div className="flex items-start justify-between mb-6">
+            <div>
+              <p className="text-sm uppercase tracking-wide text-gray-500">Profile</p>
+              <h2 className="text-2xl font-bold text-gray-900">Company Profile</h2>
+            </div>
+            <button className="px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors">
+              Edit Profile
+            </button>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="md:col-span-1">
+              <div className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl p-6 text-center">
+                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                  <Building2 className="h-10 w-10 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-1">SocialMetrics Inc</h3>
+                <p className="text-sm text-gray-600 mb-3">Technology Solutions</p>
+                <div className="flex items-center justify-center gap-1">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <span className="text-sm font-semibold text-gray-900">Verified Company</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="md:col-span-2 space-y-4">
+              <div>
+                <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">About</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Leading provider of analytics and data visualization solutions. We help businesses make data-driven decisions through innovative technology and expert consultation.
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Contact Information</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="flex items-center text-sm text-gray-700">
+                    <Mail className="h-4 w-4 mr-2 text-gray-400 flex-shrink-0" />
+                    <span>contact@socialmetrics.com</span>
+                  </div>
+                  <div className="flex items-center text-sm text-gray-700">
+                    <Phone className="h-4 w-4 mr-2 text-gray-400 flex-shrink-0" />
+                    <span>+91 98765 43210</span>
+                  </div>
+                  <div className="flex items-center text-sm text-gray-700">
+                    <MapPin className="h-4 w-4 mr-2 text-gray-400 flex-shrink-0" />
+                    <span>Mumbai, Maharashtra, India</span>
+                  </div>
+                  <div className="flex items-center text-sm text-gray-700">
+                    <Globe className="h-4 w-4 mr-2 text-gray-400 flex-shrink-0" />
+                    <span>www.socialmetrics.com</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-3 gap-4 pt-4 border-t">
+                <div className="text-center">
+                  <p className="text-2xl font-bold text-gray-900">{activeProjects}</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-wide mt-1">Active Projects</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-2xl font-bold text-gray-900">{totalProposals}</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-wide mt-1">Proposals</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-2xl font-bold text-gray-900">{mockProjects.filter((p) => p.status === 'completed' || p.companyName === 'SocialMetrics Inc').length}</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-wide mt-1">Completed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Card>
     </div>
   );
 }
